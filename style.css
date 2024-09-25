@@ -1,3 +1,11 @@
+/* varaibles */
+:root {
+  --primary-white: hsl(0, 0%, 100%);
+  --primary-light-pink: hsl(275, 100%, 97%);
+  --primary-grayish-purple: hsl(292, 16%, 49%);
+  --primary-dark-purple: hsl(292, 42%, 14%);
+}
+
 /* css reset */
 
 /* Box sizing rules */
@@ -18,8 +26,15 @@ html {
 
 /* Set core body defaults */
 body {
+  font-family: "Work Sans", sans-serif;
   min-height: 100vh;
   line-height: 1.5;
+  display: flex;
+  flex-direction: column;
+  place-items: center;
+  background: var(--primary-light-pink)
+    url(./assets/images/background-pattern-mobile.svg) top center / contain
+    no-repeat;
 }
 
 /* Set shorter line heights on headings and interactive elements */
@@ -46,10 +61,121 @@ button {
   font-size: inherit;
 }
 
+/* main */
+.faq {
+  width: min(85vw, 610px);
+  margin: 140px auto;
+  background: var(--primary-white);
+  border-radius: 5px;
+  padding: 1.5rem 1rem;
+}
+
+.faq__title {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.faq__title img {
+  width: 32px;
+}
+
+.faq__heading {
+  font-size: 2rem;
+}
+
+.question {
+  padding: 1rem 0;
+}
+
+.question__title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.question__title p {
+  padding-right: 3rem;
+  font-weight: 600;
+}
+
+.question__btn {
+  flex: 0 0 32px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.question__text {
+  color: var(--primary-grayish-purple);
+  font-size: 0.875rem;
+  padding: 1rem 2rem 1rem 0;
+}
+
+.question:not(:last-child) {
+  border-bottom: 2px solid var(--primary-light-pink);
+}
+
+.question__title p {
+  font-weight: 600;
+}
+
+/* button effects */
+.question__text {
+  display: none;
+}
+.show-text .question__text {
+  display: block;
+}
+.minus {
+  display: none;
+}
+.show-text .minus {
+  display: inline;
+}
+.show-text .plus {
+  display: none;
+}
+
+@media screen and (min-width: 1025px) {
+  body {
+    background: var(--primary-light-pink)
+      url(./assets/images/background-pattern-desktop.svg) top center / contain
+      no-repeat;
+  }
+
+  .faq {
+    margin: 165px auto;
+    border-radius: 15px;
+    padding: 2.5rem 2rem;
+  }
+
+  .faq__title img {
+    width: 48px;
+  }
+
+  .faq__heading {
+    font-size: 3rem;
+  }
+
+  .question__title p {
+    font-size: 1.125rem;
+    padding-right: 3rem;
+    font-weight: 600;
+  }
+
+  .question__text {
+    color: var(--primary-grayish-purple);
+    font-size: 1rem;
+  }
+}
+
 /* footer */
 .attribution {
   font-size: 11px;
   text-align: center;
+  margin-top: auto;
 }
 .attribution a {
   color: hsl(228, 45%, 44%);
