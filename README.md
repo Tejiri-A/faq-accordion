@@ -35,7 +35,7 @@ Users should be able to:
 ### Links
 
 - Solution URL: [Source code](https://your-solution-url.com)
-- Live Site URL: [Deployed site](https://your-live-site-url.com)
+- Live Site URL: [Deployed site](https://tejiri-faq-challenge.netlify.app/)
 
 ## My process
 
