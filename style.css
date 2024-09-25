@@ -62,6 +62,9 @@ button {
 }
 
 /* main */
+main{
+    flex: 1;
+}
 .faq {
   width: min(85vw, 610px);
   margin: 140px auto;
@@ -98,6 +101,10 @@ button {
 .question__title p {
   padding-right: 3rem;
   font-weight: 600;
+}
+
+.question__title p:hover {
+  color: hsl(282, 88%, 56%);
 }
 
 .question__btn {
@@ -138,7 +145,7 @@ button {
   display: none;
 }
 
-@media screen and (min-width: 1025px) {
+@media screen and (min-width: 481px) {
   body {
     background: var(--primary-light-pink)
       url(./assets/images/background-pattern-desktop.svg) top center / contain

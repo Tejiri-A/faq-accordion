@@ -1,6 +1,6 @@
 # Frontend Mentor - FAQ accordion solution
 
-This is a solution to the [FAQ accordion challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/faq-accordion-wyfFdeBwBz). Frontend Mentor challenges help you improve your coding skills by building realistic projects. 
+This is a solution to the [FAQ accordion challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/faq-accordion-wyfFdeBwBz). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 
 ## Table of contents
 
@@ -12,9 +12,7 @@ This is a solution to the [FAQ accordion challenge on Frontend Mentor](https://w
   - [Built with](#built-with)
   - [What I learned](#what-i-learned)
   - [Continued development](#continued-development)
-  - [Useful resources](#useful-resources)
 - [Author](#author)
-- [Acknowledgments](#acknowledgments)
 
 **Note: Delete this note and update the table of contents based on what sections you keep.**
 
@@ -31,83 +29,82 @@ Users should be able to:
 
 ### Screenshot
 
-![](./screenshot.jpg)
-
-Add a screenshot of your solution. The easiest way to do this is to use Firefox to view your project, right-click the page and select "Take a Screenshot". You can choose either a full-height screenshot or a cropped one based on how long the page is. If it's very long, it might be best to crop it.
-
-Alternatively, you can use a tool like [FireShot](https://getfireshot.com/) to take the screenshot. FireShot has a free option, so you don't need to purchase it. 
-
-Then crop/optimize/edit your image however you like, add it to your project, and update the file path in the image above.
-
-**Note: Delete this note and the paragraphs above when you add your screenshot. If you prefer not to add a screenshot, feel free to remove this entire section.**
+![Desktop screenshot](./desktop-screenshot.png)
+![Mobile screenshot](./mobile-screenshot.png)
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [Source code](https://your-solution-url.com)
+- Live Site URL: [Deployed site](https://your-live-site-url.com)
 
 ## My process
+
+## Build Process Analysis of your FAQ Accordion
+
+The provided code demonstrates a well-structured approach to building an FAQ accordion using HTML, CSS, and JavaScript. Here's a breakdown of the build process:
+
+1. Setting Up the Structure (HTML):
+
+- The HTML starts with a basic document structure including the `<!DOCTYPE html>` declaration, meta tags, and title.
+- It imports a Google Font for "Work Sans" and links the external stylesheet (`style.css`).
+- The `main` section contains the main content, which is the FAQ accordion.
+- Within `main`, the `faq` element represents the accordion container.
+- Inside the `faq`, each question is wrapped in an `article` element with the class `question`.
+- Each `question` contains a title section (`question__title`) with the question text and a button (`question__btn`) to toggle the answer.
+- The answer text is wrapped in a `question__text` element.
+
+2. Styling the Accordion (CSS):
+
+- The CSS starts by defining variables for primary colors used throughout the design.
+- It includes a basic CSS reset to ensure consistent styles across browsers.
+- The `body` styles define the overall layout, including font family, background color, and a background image.
+- Styles are applied progressively for different elements like `h1`, `button`, and `img`.
+- The `faq` element defines the width, margin, background color, and border radius for the accordion container.
+- Styles are further applied to specific sections within the `question` element, such as the title, button, and answer text.
+- Media queries are used to adjust styles for different screen sizes (less than 481px).
+- The CSS also includes styles for the footer section.
+
+3. Adding Interactivity (JavaScript):
+
+- The JavaScript uses `document.querySelectorAll` to select all elements with the class `question`.
+- It then iterates over each question using a `forEach` loop.
+- Inside the loop, it finds the button within the current question using `querySelector`.
+- An event listener is added to the button for the "click" event.
+- When the button is clicked, another `forEach` loop iterates over all questions again.
+- Inside this loop, it checks if the current question is not the one clicked.
+  - If it's not the clicked question, it hides the content of the other question using `classList.remove("show-text")`.
+- Finally, the clicked question's content is toggled with `classList.toggle("show-text")`. This class likely hides or reveals the answer text based on the CSS properties for that class.
 
 ### Built with
 
 - Semantic HTML5 markup
 - CSS custom properties
 - Flexbox
-- CSS Grid
-- Mobile-first workflow
-- [React](https://reactjs.org/) - JS library
-- [Next.js](https://nextjs.org/) - React framework
-- [Styled Components](https://styled-components.com/) - For styles
-
-**Note: These are just examples. Delete this note and replace the list above with your own choices**
 
 ### What I learned
 
-Use this section to recap over some of your major learnings while working through this project. Writing these out and providing code samples of areas you want to highlight is a great way to reinforce your own knowledge.
+When setting the width and max width of a container, it is better to to use vw to set the minumum width, that is because vw units ensure that the element's width is always relative to the viewport, providing a more consistent and responsive layout across different screen sizes and if the parent element's width changes dynamically (e.g., due to resizing or media queries), using % units might lead to unexpected changes in the .faq container's width. I spent a little over 50 minutes trying to figure out the problem. It was more apparent whenver I toggled the question text to appear.
 
-To see how you can add code snippets, see below:
+This
 
-```html
-<h1>Some HTML code I'm proud of</h1>
-```
 ```css
-.proud-of-this-css {
-  color: papayawhip;
-}
-```
-```js
-const proudOfThisFunc = () => {
-  console.log('🎉')
+.faq {
+  width: min(85vw, 610px);
 }
 ```
 
-If you want more help with writing markdown, we'd recommend checking out [The Markdown Guide](https://www.markdownguide.org/) to learn more.
+is better than
 
-**Note: Delete this note and the content within this section and replace with your own learnings.**
+```css
+.faq {
+  width: min(85%, 610px);
+}
+```
 
 ### Continued development
 
-Use this section to outline areas that you want to continue focusing on in future projects. These could be concepts you're still not completely comfortable with or techniques you found useful that you want to refine and perfect.
-
-**Note: Delete this note and the content within this section and replace with your own plans for continued development.**
-
-### Useful resources
-
-- [Example resource 1](https://www.example.com) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
-- [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
-
-**Note: Delete this note and replace the list above with resources that helped you during the challenge. These could come in handy for anyone viewing your solution or for yourself when you look back on this project in the future.**
+I struggled with setting up the css classes to be used with javascript as well so I'll be taking on more DOM projects to improve that.
 
 ## Author
 
-- Website - [Add your name here](https://www.your-site.com)
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/yourusername)
-- Twitter - [@yourusername](https://www.twitter.com/yourusername)
-
-**Note: Delete this note and add/remove/edit lines above based on what links you'd like to share.**
-
-## Acknowledgments
-
-This is where you can give a hat tip to anyone who helped you out on this project. Perhaps you worked in a team or got some inspiration from someone else's solution. This is the perfect place to give them some credit.
-
-**Note: Delete this note and edit this section's content as necessary. If you completed this challenge by yourself, feel free to delete this section entirely.**
+- Frontend Mentor - [@Tejiri-A](https://www.frontendmentor.io/profile/Tejiri-A)
